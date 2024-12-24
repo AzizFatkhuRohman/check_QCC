@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarType;
 use App\Models\DeTable;
+use App\Models\Line;
+use App\Models\Machine;
 use Auth;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -25,7 +28,10 @@ class DeTableController extends Controller
     public function create()
     {
         return view('de.create',[
-            'title'=>'Buat DE'
+            'title'=>'Buat DE',
+            'carType'=>CarType::all(),
+            'machine'=>Machine::all(),
+            'line'=>Line::all()
         ]);
     }
 
